@@ -1,24 +1,26 @@
-faasr_simple_test <- function(faasr) {
-  # Get the default data store
-  datastore <- faasr$DefaultDataStore
+# Create a function following the tutorial pattern
+cat('
+faasr_simple_test <- function() {
+  # Simple test function for FaaSr
   
-  # Create simple output
-  output_data <- data.frame(
+  # Create sample data
+  test_data <- data.frame(
     message = "Hello from FaaSr",
     timestamp = as.character(Sys.time()),
     status = "Success"
   )
   
   # Write to local file
-  write.csv(output_data, "test_output.csv", row.names = FALSE)
+  write.csv(test_data, "test_output.csv", row.names = FALSE)
   
-  # Upload to S3 using faasr_put_file
-  if (!is.null(datastore)) {
-    faasr_put_file(faasr, "test_output.csv", "test_output.csv")
-  }
+  # Upload to S3 bucket (faasr functions are available globally)
+  faasr_put_file(local_file = "test_output.csv", 
+                 remote_folder = "", 
+                 remote_file = "test_output.csv")
   
-  cat("Function completed successfully!\n")
-  
-  # Return invisible NULL as the tutorial functions likely do
-  invisible(NULL)
+  # Log completion
+  faasr_log("Function faasr_simple_test completed successfully")
 }
+', file = "faasr_simple_test.R")
+
+cat("Function created. Now upload this to GitHub.\n")
