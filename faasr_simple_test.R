@@ -1,5 +1,4 @@
 # Create a function following the tutorial pattern
-cat('
 faasr_simple_test <- function() {
   # Simple test function for FaaSr
   
@@ -21,6 +20,3 @@ faasr_simple_test <- function() {
   # Log completion
   faasr_log("Function faasr_simple_test completed successfully")
 }
-', file = "faasr_simple_test.R")
-
-cat("Function created. Now upload this to GitHub.\n")
