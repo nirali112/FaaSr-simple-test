@@ -1,8 +1,7 @@
-# Create a function following the tutorial pattern
 faasr_simple_test <- function() {
   # Simple test function for FaaSr
   
-  # Create sample data
+  # sample data
   test_data <- data.frame(
     message = "Hello from FaaSr",
     timestamp = as.character(Sys.time()),
